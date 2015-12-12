@@ -38,6 +38,10 @@ function css() {
     
     return gulp.src("index.css")
         .pipe(postcss(processors))
+        .on('error', function(err) {
+          console.error(err);
+          this.emit('end');
+        })
         .pipe(gulp.dest('./build'));
 }
 gulp.task('css', css);

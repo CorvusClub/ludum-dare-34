@@ -22,18 +22,3 @@ button:focus {
 #rightArrow {
     right: 0rem;
 }
-#gameContainer {
-    width: 100rem;
-    margin: auto;
-    position: relative;
-}
-#canvas {
-    box-sizing: border-box;
-    border: 1px solid black;
-    background-color: cornflowerblue;
-}
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}

@@ -1,6 +1,7 @@
+@import "./style/ui";
+@import "./style/canvas";
 body {
-    background-color: cornflowerblue;
-    position: absolute;
-    width: 100px;
-    height: 100px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }

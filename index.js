@@ -1,8 +1,9 @@
 import Renderer from "./lib/renderer.js";
 import Engine from "./lib/engine.js";
+
 class Game {
     constructor(canvas) {
-        this.renderer = new Renderer(canvas);
+        this.renderer = new Renderer(canvas, 412, 660);
         this.engine = new Engine();
     }
     
@@ -11,3 +12,5 @@ class Game {
         this.renderer.update(time);
     }
 }
+
+var game = new Game(document.getElementById("canvas"));
