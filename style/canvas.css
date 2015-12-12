@@ -8,3 +8,7 @@
     border: 1px solid black;
     background-color: cornflowerblue;
 }
+
+#canvas text {
+    font-size: 7rem;
+}

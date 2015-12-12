@@ -3,13 +3,23 @@ import Engine from "./lib/engine.js";
 
 class Game {
     constructor(canvas) {
-        this.renderer = new Renderer(canvas, 412, 660);
         this.engine = new Engine();
+        this.renderer = new Renderer(canvas, this.engine, 412, 660);
+        
+        this.lastTick = performance.now();
+        
+        this.update();
     }
     
-    update(time) {
-        this.engine.update(time);
-        this.renderer.update(time);
+    update(currentTime) {
+        let tick = currentTime - this.lastTick;
+        
+        this.engine.update(tick, currentTime);
+        this.renderer.update(tick, currentTime);
+        
+        this.lastTick = currentTime;
+        
+        requestAnimationFrame(this.update.bind(this));
     }
 }
 
