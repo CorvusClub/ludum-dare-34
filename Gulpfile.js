@@ -30,6 +30,20 @@ gulp.task('javascript', () => {
         .pipe(buffer())
         .pipe(gulp.dest('./build'));
 });
+function css() {
+    var processors = [
+        importCSS(),
+        autoprefixer()
+    ];
+    
+    return gulp.src("index.css")
+        .pipe(postcss(processors))
+        .pipe(gulp.dest('./build'));
+}
+gulp.task('css', css);
+gulp.task('synccss', () => {
+    return css().pipe(browserSync.stream());
+})
 
 gulp.task('browserSync-js', ['javascript'], () => {
     browserSync.reload();
@@ -44,5 +58,7 @@ gulp.task('serve', () => {
     });
     gulp.watch("./index.js", ['browserSync-js']);
     gulp.watch("./lib/*.js", ['browserSync-js']);
+    gulp.watch("./index.css", ['synccss']);
+    gulp.watch("./style/*.css", ['synccss']);
     gulp.watch("./index.html", browserSync.reload)
 })
