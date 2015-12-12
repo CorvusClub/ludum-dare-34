@@ -15,5 +15,18 @@
   "bugs": {
     "url": "https://github.com/CorvusClub/ludum-dare-34/issues"
   },
-  "homepage": "https://github.com/CorvusClub/ludum-dare-34#readme"
+  "homepage": "https://github.com/CorvusClub/ludum-dare-34#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.1.2",
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browser-sync": "^2.10.0",
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-postcss": "^6.0.1",
+    "postcss-import": "^7.1.3",
+    "snapsvg": "^0.4.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }
