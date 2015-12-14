@@ -6,6 +6,8 @@ const buffer = require('vinyl-buffer');
 const browserify = require('browserify');
 const babel = require('babelify');
 
+const uglify = require('gulp-uglify');
+
 const sourcemaps = require("gulp-sourcemaps");
 
 const postcss = require('gulp-postcss');
@@ -33,6 +35,9 @@ gulp.task('javascript', () => {
         })
         .pipe(source('app.js'))
         .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./build'));
 });
 function css() {
@@ -60,25 +65,13 @@ gulp.task('browserSync-js', ['javascript'], () => {
     browserSync.reload();
 });
 
-gulp.task('svgstore', () => {
-    var svgs = gulp.src("./assets/*.svg")
-        .pipe(svgstore({inlineSvg: true}));
-        
-    return gulp.src("./index.html")
-        .pipe(inject(svgs, {transform: (filePath, file) => {
-            return file.contents.toString();
-        }}))
-        .pipe(gulp.dest("./build/"));
-});
-
 gulp.task('assets', () => {
     gulp.src("./assets/*")
         .pipe(gulp.dest("./build/assets/"));
 })
 
-gulp.task('reinject-svg', ['svgstore'], browserSync.reload)
 
-gulp.task('default', ['svgstore', 'javascript', 'css', 'assets']);
+gulp.task('default', ['javascript', 'css', 'assets']);
 
 gulp.task('serve', ['default'], () => {
     browserSync.init({
@@ -92,6 +85,5 @@ gulp.task('serve', ['default'], () => {
     gulp.watch("./lib/*.js", ['browserSync-js']);
     gulp.watch("./index.css", ['synccss']);
     gulp.watch("./style/*.css", ['synccss']);
-    gulp.watch("./index.html", ['reinject-svg']);
     gulp.watch("./assets/*", ['assets']);
 })
