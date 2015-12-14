@@ -9,6 +9,8 @@ button {
     border: none;
     padding: 0;
     margin: 0;
+    z-index: 15;
+    user-select: none;
 }
 button:active, .down {
     color: white;
@@ -16,9 +18,32 @@ button:active, .down {
 button:focus {
     outline: none;
 }
+
+#music {
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 10rem;
+    font-size: 10rem;
+}
 #leftArrow {
     left: 0rem;
 }
 #rightArrow {
     right: 0rem;
+}
+
+#ui {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+.day #ui text {
+    fill: black;
+}
+.night #ui text {
+    fill: white;
+    transition: fill 1s linear;
 }

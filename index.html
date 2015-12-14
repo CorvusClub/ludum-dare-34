@@ -2,17 +2,23 @@
 <meta charset="UTF-8">
 <html>
     <head>
+        <meta name="HandheldFriendly" content="true">
+        <meta name="MobileOptimized" content="width">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
         <title>Ludum Dare #34</title>
-        <link rel="stylesheet" type="text/css" href="./build/index.css" />
+        <link rel="stylesheet" type="text/css" href="./index.css" />
     </head>
     <body>
+        <div id="svg-symbols">
+            <!-- inject:svg --><!-- endinject -->
+        </div>
+        
         <div id="gameContainer">
-            <svg id="canvas" viewbox="0 0 412 660" preserveAspectRatio="xMinYMax meet">
-                
-            </svg>
+            <canvas id="canvas"></canvas>
             <button id="leftArrow">◀</button>
             <button id="rightArrow">▶</button>
+            <button id="music">♫</button>
         </div>
-        <script src="build/index.js"></script>
+        <script src="./app.js"></script>
     </body>
 </html>

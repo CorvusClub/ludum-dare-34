@@ -7,8 +7,49 @@
     box-sizing: border-box;
     border: 1px solid black;
     background-color: cornflowerblue;
+    transition: background-color 1s linear;
+    width: 100%;
+    height: 100%;
 }
 
 #canvas text {
-    font-size: 7rem;
+    font-size: 2;
+}
+
+.day #canvas{
+    background-color: cornflowerblue;
+}
+
+.night #canvas{
+    background-color: darkblue;
+}
+
+.cloud {
+    transition: fill 500ms linear, stroke 500ms linear;
+    fill: white;
+}
+
+.star1 {
+    fill: white;
+    transition: fill 500ms linear, stroke 500ms linear;
+}
+.day .star1 {
+    stroke: transparent;
+    fill: transparent;
+}
+
+.star2 {
+    stroke: white;
+    stroke-width: 0.4;
+    fill: none;
+    transition: fill 500ms linear, stroke 500ms linear;
+}
+.day .star2 {
+    stroke: transparent;
+    fill: transparent;
+}
+
+.night .cloud {
+    fill: #8C11AA;
+    stroke: transparent;
 }
