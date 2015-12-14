@@ -12,7 +12,7 @@ class Game {
         
         this.song = document.createElement("audio");
         this.song.src = "./rain_nice_today.mp3";
-        //this.song.play();
+        this.song.play();
         document.querySelector("#music").addEventListener("click", () => {
             if(this.song.paused) {
                 this.song.play();
