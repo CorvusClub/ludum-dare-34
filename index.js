@@ -38,4 +38,6 @@ class Game {
     }
 }
 
-window.game = new Game(document.getElementById("canvas"));
+window.addEventListener("load", () => {
+    window.game = new Game(document.getElementById("canvas"));
+});
