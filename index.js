@@ -24,6 +24,8 @@ class Game {
     }
     
     update(currentTime) {
+        requestAnimationFrame(this.update.bind(this));
+        
         let tick = currentTime - this.lastTick;
         if(tick > 128) {
             tick = 128;
@@ -33,7 +35,6 @@ class Game {
         
         this.lastTick = currentTime;
         
-        requestAnimationFrame(this.update.bind(this));
     }
 }
 
